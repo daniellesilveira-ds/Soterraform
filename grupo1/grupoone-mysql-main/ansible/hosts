@@ -1,0 +1,8 @@
+
+[mysql_prod]
+ec2-15-228-157-110.sa-east-1.compute.amazonaws.com
+[mysql_dev]
+ec2-18-228-171-107.sa-east-1.compute.amazonaws.com
+[mysql_stage]
+ec2-52-67-144-126.sa-east-1.compute.amazonaws.com
+

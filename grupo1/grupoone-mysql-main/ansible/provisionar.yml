@@ -1,0 +1,74 @@
+- hosts: all
+  tasks:
+    - name: "Roda: sudo apt update"
+      become: yes
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 #Um dia
+    
+    - name: "Instala pacotes em lote"
+      apt:
+        name: "{{ item }}"
+        state: latest
+      become: yes # roda com sudo
+      with_items:
+        - php-mysql
+        - php-curl
+        - mysql-server
+        - python3-mysqldb
+        - unzip
+
+    - name: 'Configura o mysqld.cnf'     
+      replace:
+        path: '/etc/mysql/mysql.conf.d/mysqld.cnf'
+        regexp: "{{ item.regex }}"
+        replace: "{{ item.value }}"
+        backup: yes
+      with_items:
+        - { regex: '127.0.0.1', value: '0.0.0.0'}
+      become: yes
+      
+
+    - name: "Lavanta serviço do mysql"
+      become: yes
+      service:
+        name: mysql
+        state: started
+
+    # - name: "Criando senha root mysql"
+    #   become: yes
+    #   mysql_user:
+    #     name: root
+    #     host: localhost
+    #     password: Senha12_torne00
+    #     priv: "*.*:ALL,GRANT"
+    #     state: present  
+
+    - name: "Cria o banco de dados MySQL"
+      mysql_db:
+        name: SpringWebYoutube
+        login_user: root
+        login_password: Senha12_torne00
+        state: present
+      become: yes
+
+    - name: "Copy database dump file"
+      copy:
+        src: sql/db_backup.sql
+        dest: /tmp
+
+    - name: "Restore database"
+      mysql_db:
+        name: SpringWebYoutube
+        state: import
+        target: /tmp/db_backup.sql
+        login_user: root
+        login_password: Senha12_torne00
+        state: present
+
+    - name: "Restarta serviço do mysql"
+      become: yes
+      service:
+        name: mysql
+        state: restarted
