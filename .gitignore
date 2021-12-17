@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/terraform,ansible,java,linux,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=terraform,ansible,java,linux,macos
+# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,terraform,java,ansible
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,terraform,java,ansible
 
 ### Ansible ###
 *.retry
@@ -29,21 +29,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-### Linux ###
-*~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
-
-# .nfs files are created when an open file is removed but is still being accessed
-.nfs*
 
 ### macOS ###
 # General
@@ -90,7 +75,6 @@ crash.log
 # control as they are data points which are potentially sensitive and subject
 # to change depending on the environment.
 #
-*.tfvars
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
@@ -109,4 +93,31 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# End of https://www.toptal.com/developers/gitignore/api/terraform,ansible,java,linux,macos
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/macos,windows,terraform,java,ansible
+
