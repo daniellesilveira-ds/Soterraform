@@ -2,7 +2,7 @@
 
 # export TF_VAR_resource_id="~dddss"
 
-# cd 02-pipelineAMI/terraform
+cd 02-pipelineAMI/terraform
 cd terraform
 terraform init
 terraform apply -auto-approve
