@@ -69,18 +69,22 @@ resource "aws_security_group" "projetofinal_kubernetes" {
 
 variable "vpcId" {
   type        = string
+  default = "vpc-0a08641ef0b17c6f9"
 }
 
 variable "subnetId" {
   type        = string
+  default   = "subnet-019152f5bccbb831d"
 }
 
 variable "chave" {
   type        = string
+  default = "key-private-turma3-dani-dev"
 }
 
 variable "amiId" {
   type        = string
+  default = "ami-090006f29ecb2d79a"
 }
 
 # terraform refresh para mostrar o ssh

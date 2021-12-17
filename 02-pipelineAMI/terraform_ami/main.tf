@@ -2,26 +2,26 @@ provider "aws" {
   region = "sa-east-1"
 }
 
+# resource "aws_ami_from_instance" "ami-projetofinal" {
+#   name               = "terraform-projetofinal"
+#   source_instance_id = "0"
+# }
+
 resource "aws_ami_from_instance" "ami-projetofinal" {
-  name               = "terraform-projetofinal"
-  source_instance_id = "0"
+  name               = "terraform-projetofinal-${var.versao}"
+  source_instance_id = var.resource_id
 }
 
-# resource "aws_ami_from_instance" "ami-projetofinal" {
-#   name               = "terraform-projetofinal-${var.versao}"
-#   source_instance_id = var.resource_id
-# }
 
+variable "resource_id" {
+  type        = string
+  default = "1"
+}
 
-# variable "resource_id" {
-#   type        = string
-#   description = "Qual o ID da máquina?"
-# }
-
-# variable "versao" {
-#   type        = string
-#   description = "Qual versão da imagem?"
-# }
+variable "versao" {
+  type        = string
+ default = "1"
+}
 
 output "ami" {
   value = [

@@ -188,14 +188,17 @@ resource "aws_security_group" "projetofinal-mysql-sgProd" {
 
 variable "vpc_id" {
   type        = string
+  default =  "vpc-0a08641ef0b17c6f9"
 }
 
 variable "igw_id" {
   type        = string
+  default =  "igw-0e384ad16340fb061"
 }
 
 variable "amiId" {
   type        = string
+  default = "ami-090006f29ecb2d79a"
 }
 
 variable "subnetPrivada" {

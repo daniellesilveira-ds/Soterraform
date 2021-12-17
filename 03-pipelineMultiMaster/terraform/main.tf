@@ -293,19 +293,23 @@ output "security-group-masters" {
 
 variable "amiId" {
   type = string
-  description = "amiId"
+  default = "ami-090006f29ecb2d79a"
+
 }
 
 variable "subnets" {
   type        = list(string)
+  default = []
 }
 variable "vpcId" {
   type = string
-  description = "vpcId"
+  default = "vpc-0a08641ef0b17c6f9"
+ 
 }
 variable "chave" {
   type = string
-  description = "chave"
+  default = "key-private-turma3-dani-dev"
+  
 }
 
 #variable "sgMasters" {
