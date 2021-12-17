@@ -1,7 +1,0 @@
-- hosts: 
-  - '{{ hosts }}'
-
-  tasks:
-    - name: "Configura hostname jenkins"
-      shell: hostname projeto-jk-var && echo "projeto-jk-var" > /etc/hostname
-      become: yes

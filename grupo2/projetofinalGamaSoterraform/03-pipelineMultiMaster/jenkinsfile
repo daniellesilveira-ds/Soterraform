@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'AMI_ID', defaultValue: '', description: 'id da ami do kubernets')
+    }
+
+    stages {
+        stage('Clone repo') {
+            steps {
+                git url: 'https://github.com/daniellesilveira-ds/Soterraform', branch: 'main'
+            }
+        }
+        stage('Build Cluster') {
+            steps {
+                sh 'chmod +x 03-pipelineMultiMaster/deploy.sh'
+                sh '03-pipelineMultiMaster/deploy.sh'
+            }
+        }
+        stage('Test Cluster') {
+            steps {
+                sh 'chmod +x 03-pipelineMultiMaster/test.sh'
+                sh '03-pipelineMultiMaster/test.sh'
+            }
+        }
+    }
+}
