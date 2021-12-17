@@ -93,6 +93,6 @@ output "dev_img_kubernetes" {
     "resource_id: ${aws_instance.dev_img_kubernetes.id}",
     "public_ip: ${aws_instance.dev_img_kubernetes.public_ip}",
     "public_dns: ${aws_instance.dev_img_kubernetes.public_dns}",
-    "ssh -i /home/ubuntu/.ssh/id_rsa ubuntu@${aws_instance.dev_img_kubernetes.public_dns}"
+    "ssh -i /home/ubuntu/key-private-turma3-dani-dev.pem ubuntu@${aws_instance.dev_img_kubernetes.public_dns}"
   ]
 }
