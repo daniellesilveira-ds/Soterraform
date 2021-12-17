@@ -65,7 +65,7 @@ resource "aws_route_table" "soterraform_rtPub" {
         cidr_block                 = "0.0.0.0/0"
         destination_prefix_list_id = ""
         egress_only_gateway_id     = ""
-        gateway_id                 = "${var.igw_id}"
+        gateway_id                 = "igw-0e384ad16340fb061"
         instance_id                = ""
         ipv6_cidr_block            = ""
         local_gateway_id           = ""
@@ -210,13 +210,7 @@ resource "aws_nat_gateway" "soterraform_NATGW1c" {
   }
 }
 
-variable "vpc_id" {
-  type        = string
-}
 
-variable "igw_id" {
-  type        = string
-}
 
 output "subnets" {
   value = [

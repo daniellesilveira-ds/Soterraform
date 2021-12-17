@@ -3,19 +3,25 @@ provider "aws" {
 }
 
 resource "aws_ami_from_instance" "ami-projetofinal" {
-  name               = "terraform-projetofinal-${var.versao}"
-  source_instance_id = var.resource_id
+  name               = "terraform-projetofinal"
+  source_instance_id = "0"
 }
 
-variable "resource_id" {
-  type        = string
-  description = "Qual o ID da máquina?"
-}
+# resource "aws_ami_from_instance" "ami-projetofinal" {
+#   name               = "terraform-projetofinal-${var.versao}"
+#   source_instance_id = var.resource_id
+# }
 
-variable "versao" {
-  type        = string
-  description = "Qual versão da imagem?"
-}
+
+# variable "resource_id" {
+#   type        = string
+#   description = "Qual o ID da máquina?"
+# }
+
+# variable "versao" {
+#   type        = string
+#   description = "Qual versão da imagem?"
+# }
 
 output "ami" {
   value = [
