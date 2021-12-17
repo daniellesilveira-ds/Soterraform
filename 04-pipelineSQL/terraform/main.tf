@@ -203,10 +203,12 @@ variable "amiId" {
 
 variable "subnetPrivada" {
   type        = string
+  default = "subnet-019152f5bccbb831d"
 }
 
 variable "chave" {
   type        = string
+  default = "key-private-turma3-dani-dev"
 }
 
 output "output-mysql-dev" {

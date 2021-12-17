@@ -299,7 +299,8 @@ variable "amiId" {
 
 variable "subnets" {
   type        = list(string)
-  default = []
+  default = ["subnet-019152f5bccbb831d"]
+ 
 }
 variable "vpcId" {
   type = string
