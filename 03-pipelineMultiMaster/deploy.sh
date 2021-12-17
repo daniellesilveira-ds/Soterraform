@@ -124,8 +124,8 @@ ff02::3 ip6-allhosts
 echo  "Rodando provisionar.yml ..."
 cd ../ansible
 
-ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key "/var/lib/jenkins/.ssh/id_rsa"
-ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key "/var/lib/jenkins/.ssh/id_rsa")
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key "/var/lib/jenkins/key-private-turma3-dani-dev.pem"
+ANSIBLE_OUT=$(ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubuntu --private-key "/var/lib/jenkins/key-private-turma3-dani-dev.pem")
 
 #### Mac ###
 # K8S_JOIN_MASTER=$(echo $ANSIBLE_OUT | grep -oE "(kubeadm join.*?certificate-key.*?)'" | sed 's/\\//g' | sed "s/'t//g" | sed "s/'//g" | sed "s/,//g")
@@ -183,4 +183,4 @@ cat <<EOF > 2-provisionar-k8s-master-auto-shell.yml
 EOF
 
 echo  "Iniciando ansible playbook ..."
-ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts 2-provisionar-k8s-master-auto-shell.yml -u ubuntu --private-key "/var/lib/jenkins/.ssh/id_rsa"
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts 2-provisionar-k8s-master-auto-shell.yml -u ubuntu --private-key "/var/lib/jenkins/key-private-turma3-dani-dev.pem"
