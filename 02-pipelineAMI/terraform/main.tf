@@ -67,21 +67,21 @@ resource "aws_security_group" "projetofinal_kubernetes" {
   }
 }
 
-# variable "vpcId" {
-#   type        = string
-# }
+variable "vpcId" {
+  type        = string
+}
 
-# variable "subnetId" {
-#   type        = string
-# }
+variable "subnetId" {
+  type        = string
+}
 
-# variable "chave" {
-#   type        = string
-# }
+variable "chave" {
+  type        = string
+}
 
-# variable "amiId" {
-#   type        = string
-# }
+variable "amiId" {
+  type        = string
+}
 
 # terraform refresh para mostrar o ssh
 output "dev_img_kubernetes" {
