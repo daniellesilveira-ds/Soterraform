@@ -291,22 +291,22 @@ output "security-group-masters" {
   value = aws_security_group.acessos_masters.id
 }
 
-variable "amiId" {
-  type = string
-  description = "amiId"
-}
+# variable "amiId" {
+#   type = string
+#   description = "amiId"
+# }
 
-variable "subnets" {
-  type        = list(string)
-}
-variable "vpcId" {
-  type = string
-  description = "vpcId"
-}
-variable "chave" {
-  type = string
-  description = "chave"
-}
+# variable "subnets" {
+#   type        = list(string)
+# }
+# variable "vpcId" {
+#   type = string
+#   description = "vpcId"
+# }
+# variable "chave" {
+#   type = string
+#   description = "chave"
+# }
 
 #variable "sgMasters" {
 #  type = string
