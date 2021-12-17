@@ -186,25 +186,25 @@ resource "aws_security_group" "projetofinal-mysql-sgProd" {
 }
 
 
-variable "vpc_id" {
-  type        = string
-}
+# variable "vpc_id" {
+#   type        = string
+# }
 
-variable "igw_id" {
-  type        = string
-}
+# variable "igw_id" {
+#   type        = string
+# }
 
-variable "amiId" {
-  type        = string
-}
+# variable "amiId" {
+#   type        = string
+# }
 
-variable "subnetPrivada" {
-  type        = string
-}
+# variable "subnetPrivada" {
+#   type        = string
+# }
 
-variable "chave" {
-  type        = string
-}
+# variable "chave" {
+#   type        = string
+# }
 
 output "output-mysql-dev" {
   value = [
