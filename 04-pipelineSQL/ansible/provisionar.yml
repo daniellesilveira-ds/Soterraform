@@ -28,6 +28,7 @@
     
     - name: "Alterando senha usuario SQL"
       become: yes
+      ignore_errors: yes
       mysql_user:
         name: "root"
         host_all: true
@@ -77,6 +78,7 @@
         state: restarted
 
     - name: "Cria o banco de dados MySQL"
+      ignore_erros: yes
       become: yes
       mysql_db:
         name: SpringWebYoutubeTest
