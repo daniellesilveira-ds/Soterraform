@@ -78,7 +78,6 @@
         state: restarted
 
     - name: "Cria o banco de dados MySQL"
-      ignore_erros: yes
       become: yes
       mysql_db:
         name: SpringWebYoutubeTest
