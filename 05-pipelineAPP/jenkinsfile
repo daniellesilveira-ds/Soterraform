@@ -20,9 +20,9 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 //sh 'rm -rf spring-web-youtube && git clone https://github.com/torneseumprogramador/spring-web-youtube.git'
-                sh 'rm -rf app-code'
-                sh 'mkdir app-code && cd app-code'
-                dir ('app-code'){
+                sh 'rm -rf /var/lib/jenkins/workspace/pipeline-soterraform-APP/app-code'
+                sh 'mkdir /var/lib/jenkins/workspace/pipeline-soterraform-APP/app-code && cd /var/lib/jenkins/workspace/pipeline-soterraform-APP/app-code'
+                dir ('/var/lib/jenkins/workspace/pipeline-soterraform-APP/app-code'){
                     git url: 'https://github.com/torneseumprogramador/spring-web-youtube.git', branch: 'deploy-docker'
                 }
             }
@@ -30,14 +30,14 @@ pipeline {
 
         stage('Build App') {
             steps {
-                sh 'cd app-code && ./mvnw package -Dmaven.test.skip -DskipTests -Dmaven.javadoc.skip=true'
+                sh 'cd /var/lib/jenkins/workspace/pipeline-soterraform-APP/app-code && ./mvnw package -Dmaven.test.skip -DskipTests -Dmaven.javadoc.skip=true'
                 echo 'Building..'
             }
         }
 
         // stage('Test App') {
         //     steps {
-        //         sh "export USER=root && export PASSWORD=\"$DB_PASSWORD\" && export DATABASE_URL='mysql://$SQL_DEV:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
+        //         sh "export USER=root && export PASSWORD=\"$DB_PASSWORD\" && export DATABASE_URL='mysql://$SQL_DEV:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd /var/lib/jenkins/workspace/pipeline-soterraform-APP/app-code && ./mvnw test"
         //         echo 'Testing....'
         //         //sh 'nohup ./start.sh &'
         //         //echo ' Starting....'
@@ -46,7 +46,7 @@ pipeline {
 
         stage('Create and Push Docker image') {
             steps {
-                sh "cd app-code && docker build -t daniaripmav/projetofinal-spr-web -f Dockerfile . && docker push daniaripmav/projetofinal-spr-web"
+                sh "cd /var/lib/jenkins/workspace/pipeline-soterraform-APP/app-code && docker build -t daniaripmav/projetofinal-spr-web -f Dockerfile . && docker push daniaripmav/projetofinal-spr-web"
                 echo 'pushing docker image..'
             }
         }
