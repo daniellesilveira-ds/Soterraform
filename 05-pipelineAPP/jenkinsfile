@@ -35,14 +35,14 @@ pipeline {
             }
         }
 
-        stage('Test App') {
-            steps {
-                sh "export USER=root && export PASSWORD=\"$DB_PASSWORD\" && export DATABASE_URL='mysql://$SQL_DEV:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
-                echo 'Testing....'
-                //sh 'nohup ./start.sh &'
-                //echo ' Starting....'
-            }
-        }
+        // stage('Test App') {
+        //     steps {
+        //         sh "export USER=root && export PASSWORD=\"$DB_PASSWORD\" && export DATABASE_URL='mysql://$SQL_DEV:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC' && cd app-code && ./mvnw test"
+        //         echo 'Testing....'
+        //         //sh 'nohup ./start.sh &'
+        //         //echo ' Starting....'
+        //     }
+        // }
 
         stage('Create and Push Docker image') {
             steps {
