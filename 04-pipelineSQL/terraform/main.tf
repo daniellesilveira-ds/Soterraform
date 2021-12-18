@@ -7,6 +7,7 @@ resource "aws_instance" "mysql_instance-dev" {
   ami = "${var.amiId}"
   instance_type = "t2.large"
   key_name = "${var.chave}"
+  associate_public_ip_address = true
   root_block_device {
     encrypted = true
     volume_size = 20
@@ -22,6 +23,7 @@ resource "aws_instance" "mysql_instance-stag" {
   ami = "${var.amiId}"
   instance_type = "t2.large"
   key_name = "${var.chave}"
+  associate_public_ip_address = true
   root_block_device {
     encrypted = true
     volume_size = 20
@@ -36,6 +38,7 @@ resource "aws_instance" "mysql_instance-prod" {
   subnet_id = "${var.subnetPrivada}"
   ami = "${var.amiId}"
   instance_type = "t2.large"
+  associate_public_ip_address = true
   key_name = "${var.chave}"
   root_block_device {
     encrypted = true
