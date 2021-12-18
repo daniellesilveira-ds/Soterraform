@@ -1,8 +1,10 @@
 #!/bin/bash
-cd 03-pipelineMultiMaster/terraform
+# cd 03-pipelineMultiMaster/terraform
+cd terraform
 
 uri=$(terraform output | grep "k8s-master 1" | awk '{print $6 " " $7 " " $8 " " $9;exit}')
-
+echo "teste"
+echo "teste-" $uri
 kubectl=$($uri 'sudo kubectl get nodes -o wide')
 
 echo $kubectl
