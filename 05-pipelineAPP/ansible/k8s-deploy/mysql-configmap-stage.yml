@@ -4,7 +4,7 @@ metadata:
   name: mysql-configmap-stage
 data:
   USER: root
-  #PASSWORD: {{ DB_PASSWORD }}
+  PASSWORD: root
   DATABASE_URL: mysql://10.30.72.217:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC
   
   
